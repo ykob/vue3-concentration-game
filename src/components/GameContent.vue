@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
 import { CardItem } from ".";
-import { HINATAZAKA_MEMBERS } from "../../constants";
-import { GroupId } from "../../types";
 
-const props = defineProps<{
-  selectedGroupId: GroupId;
-}>();
 const params = reactive<{
   gottenItemIds: number[];
   itemIds: number[];
@@ -25,15 +20,12 @@ const shuffleArray = (array: any[]) => {
 };
 
 onMounted(() => {
-  params.itemIds = HINATAZAKA_MEMBERS.filter(
-    (member) => member.groupId === props.selectedGroupId
-  ).map((member) => member.id);
   params.itemIds = shuffleArray(params.itemIds.concat(params.itemIds));
 });
 </script>
 
 <template>
-  <div class="game-content">
+  <div class="game-platform">
     <div class="card-items">
       <CardItem
         v-for="(memberId, index) in params.itemIds"
