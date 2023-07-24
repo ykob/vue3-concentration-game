@@ -28,10 +28,11 @@ onMounted(() => {
   <div class="game-platform">
     <div class="card-items">
       <CardItem
-        v-for="(memberId, index) in params.itemIds"
+        v-for="(imageId, index) in params.itemIds"
         :key="'card-item-' + index"
+        :gotten-item-ids="params.gottenItemIds"
         :item-index="index"
-        :member-id="memberId"
+        :image-id="imageId"
         :selectedItemIndices="params.selectedItemIndices"
         @click="params.selectedItemIndices.push(index)"
       />
