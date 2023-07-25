@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
-import { CardItem } from ".";
+import { CardItem, CardItemContainer } from ".";
 
 const params = reactive<{
   gottenItemIds: number[];
@@ -26,7 +26,7 @@ onMounted(() => {
 
 <template>
   <div class="game-platform">
-    <div class="card-items">
+    <CardItemContainer>
       <CardItem
         v-for="(imageId, index) in params.itemIds"
         :key="'card-item-' + index"
@@ -36,6 +36,8 @@ onMounted(() => {
         :selectedItemIndices="params.selectedItemIndices"
         @click="params.selectedItemIndices.push(index)"
       />
-    </div>
+    </CardItemContainer>
   </div>
 </template>
+
+<style scoped></style>
