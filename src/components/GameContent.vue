@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
 import { CardItem, CardItemContainer } from ".";
+import { CARD_COUNT } from "../constants";
 
 const params = reactive<{
   gottenItemIds: number[];
@@ -11,6 +12,10 @@ const params = reactive<{
   itemIds: [],
   selectedItemIndices: [],
 });
+const setCardIds = () => {
+  const cardIds = Array.from({ length: CARD_COUNT }, (_, i) => i + 1);
+  params.itemIds = shuffleArray(cardIds.concat(cardIds));
+};
 const shuffleArray = (array: any[]) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i - 1));
@@ -20,7 +25,7 @@ const shuffleArray = (array: any[]) => {
 };
 
 onMounted(() => {
-  params.itemIds = shuffleArray(params.itemIds.concat(params.itemIds));
+  setCardIds();
 });
 </script>
 
