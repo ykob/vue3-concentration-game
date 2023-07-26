@@ -1,17 +1,31 @@
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
-import { CardItem, CardItemContainer } from ".";
+import { CardItem, CardItemContainer, GameTimer } from ".";
 import { CARD_COUNT } from "../constants";
 
 const params = reactive<{
   gottenItemIds: number[];
   itemIds: number[];
   selectedItemIndices: number[];
+  timeCurrent: number;
+  timeStart: number;
 }>({
   gottenItemIds: [],
   itemIds: [],
   selectedItemIndices: [],
+  timeCurrent: 0,
+  timeStart: 0,
 });
+
+const isGameCompleted = () => {
+  return params.gottenItemIds.length === params.itemIds.length / 2;
+};
+const update = () => {
+  params.timeCurrent = Date.now();
+  if (!isGameCompleted()) {
+    requestAnimationFrame(update);
+  }
+};
 const setCardIds = () => {
   const cardIds = Array.from({ length: CARD_COUNT }, (_, i) => i + 1);
   params.itemIds = shuffleArray(cardIds.concat(cardIds));
@@ -23,14 +37,23 @@ const shuffleArray = (array: any[]) => {
   }
   return array;
 };
+const startGame = () => {
+  params.timeStart = Date.now();
+  requestAnimationFrame(update);
+};
 
 onMounted(() => {
   setCardIds();
+  startGame();
 });
 </script>
 
 <template>
   <div class="game-platform">
+    <GameTimer
+      :time-current="params.timeCurrent"
+      :time-start="params.timeStart"
+    />
     <CardItemContainer>
       <CardItem
         v-for="(imageId, index) in params.itemIds"
