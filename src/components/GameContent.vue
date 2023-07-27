@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
-import { CardItem, CardItemContainer, GameTimer } from ".";
+import { CardItem, CardItemContainer, GameTimer, StartButton } from ".";
 import { CARD_COUNT } from "../constants";
 
 const params = reactive<{
@@ -44,7 +44,6 @@ const startGame = () => {
 
 onMounted(() => {
   setCardIds();
-  startGame();
 });
 </script>
 
@@ -65,6 +64,7 @@ onMounted(() => {
         @click="params.selectedItemIndices.push(index)"
       />
     </CardItemContainer>
+    <StartButton @start-game="startGame" />
   </div>
 </template>
 
