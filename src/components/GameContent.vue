@@ -28,7 +28,10 @@ const update = () => {
 };
 const setCardIds = () => {
   const cardIds = Array.from({ length: CARD_COUNT }, (_, i) => i + 1);
-  params.itemIds = shuffleArray(cardIds.concat(cardIds));
+  params.itemIds = cardIds.concat(cardIds);
+};
+const shuffleCardIds = () => {
+  params.itemIds = shuffleArray(params.itemIds);
 };
 const shuffleArray = (array: any[]) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -38,6 +41,7 @@ const shuffleArray = (array: any[]) => {
   return array;
 };
 const startGame = () => {
+  shuffleCardIds();
   params.timeStart = Date.now();
   requestAnimationFrame(update);
 };
