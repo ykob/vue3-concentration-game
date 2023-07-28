@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive } from "vue";
+import { computed, onMounted, reactive } from "vue";
 import { CardItem, CardItemContainer, GameTimer, StartButton } from ".";
 import { CARD_COUNT } from "../constants";
 
@@ -17,12 +17,15 @@ const params = reactive<{
   timeStart: 0,
 });
 
-const isGameCompleted = () => {
+const isGameCompleted = computed(() => {
   return params.gottenItemIds.length === params.itemIds.length / 2;
-};
+});
+const isGameStarted = computed(() => {
+  return params.timeStart > 0;
+});
 const update = () => {
   params.timeCurrent = Date.now();
-  if (!isGameCompleted()) {
+  if (!isGameCompleted.value) {
     requestAnimationFrame(update);
   }
 };
@@ -61,6 +64,7 @@ onMounted(() => {
       <CardItem
         v-for="(imageId, index) in params.itemIds"
         :key="'card-item-' + index"
+        :disabled="isGameCompleted || !isGameStarted"
         :gotten-item-ids="params.gottenItemIds"
         :item-index="index"
         :image-id="imageId"
