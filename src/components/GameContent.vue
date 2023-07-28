@@ -57,9 +57,11 @@ onMounted(() => {
 <template>
   <div class="game-platform">
     <GameTimer
+      v-if="isGameStarted"
       :time-current="params.timeCurrent"
       :time-start="params.timeStart"
     />
+    <StartButton v-else @start-game="startGame" />
     <CardItemContainer>
       <CardItem
         v-for="(imageId, index) in params.itemIds"
@@ -72,7 +74,6 @@ onMounted(() => {
         @click="params.selectedItemIndices.push(index)"
       />
     </CardItemContainer>
-    <StartButton @start-game="startGame" />
   </div>
 </template>
 
