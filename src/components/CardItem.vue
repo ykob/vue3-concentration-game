@@ -46,6 +46,17 @@ const src = computed(() => {
   border: 0;
   background-color: transparent;
 }
+.card-item:focus {
+  outline: none;
+}
+.card-item:focus:before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 4px solid #00f;
+  border-radius: 8px;
+  z-index: -1;
+}
 .card-item:disabled {
   cursor: default;
 }
