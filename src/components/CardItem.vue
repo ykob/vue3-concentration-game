@@ -25,14 +25,14 @@ const src = computed(() => {
 </script>
 
 <template>
-  <div class="card-item">
+  <button class="card-item">
     <div class="front" :class="classnames">
       <img v-if="isFlipped" :src="src" alt="" />
     </div>
     <div class="back" :class="classnames">
       <img src="/img/card_back.jpg" alt="" />
     </div>
-  </div>
+  </button>
 </template>
 
 <style scoped>
@@ -43,6 +43,11 @@ const src = computed(() => {
   color: #fff;
   transform-style: preserve-3d;
   perspective: 640px;
+  border: 0;
+  background-color: transparent;
+}
+.card-item:disabled {
+  cursor: default;
 }
 .card-item img {
   display: block;
@@ -61,6 +66,7 @@ const src = computed(() => {
   inset: 0;
   transform: rotateY(180deg);
   backface-visibility: hidden;
+  background-color: #c00;
 }
 .front.is-flipped {
   transform: rotateY(0deg);
@@ -70,9 +76,9 @@ const src = computed(() => {
   inset: 0;
   transform: rotateY(0deg);
   backface-visibility: hidden;
+  background-color: #000;
 }
 .back.is-flipped {
   transform: rotateY(180deg);
 }
-
 </style>
