@@ -23,6 +23,29 @@ const isGameCompleted = computed(() => {
 const isGameStarted = computed(() => {
   return params.timeStart > 0;
 });
+const onClickCardItem = (index: number, memberId: number) => {
+  if (
+    params.gottenItemIds.includes(memberId) ||
+    params.selectedItemIndices.includes(index) ||
+    params.selectedItemIndices.length === 2
+  ) {
+    return;
+  }
+  params.selectedItemIndices.push(index);
+  if (params.selectedItemIndices.length === 2) {
+    if (
+      params.itemIds[params.selectedItemIndices[0]] ===
+      params.itemIds[params.selectedItemIndices[1]]
+    ) {
+      params.gottenItemIds.push(params.itemIds[params.selectedItemIndices[0]]);
+      params.selectedItemIndices = [];
+    } else {
+      setTimeout(() => {
+        params.selectedItemIndices = [];
+      }, 750);
+    }
+  }
+};
 const update = () => {
   params.timeCurrent = Date.now();
   if (!isGameCompleted.value) {
@@ -71,7 +94,7 @@ onMounted(() => {
         :item-index="index"
         :image-id="imageId"
         :selectedItemIndices="params.selectedItemIndices"
-        @click="params.selectedItemIndices.push(index)"
+        @click="onClickCardItem(index, imageId)"
       />
     </CardItemContainer>
   </div>
