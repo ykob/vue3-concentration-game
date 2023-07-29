@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { zeroPadding } from "../utils";
+import { zeroPadding } from "../../utils";
 
 const props = defineProps<{
   gottenItemIds: number[];
@@ -27,10 +27,11 @@ const src = computed(() => {
 <template>
   <button class="card-item">
     <div class="front" :class="classnames">
-      <img v-if="isFlipped" :src="src" alt="" />
+      <!-- <img :src="src" alt="" /> -->
+      {{ props.imageId }}
     </div>
     <div class="back" :class="classnames">
-      <img src="/img/card_back.jpg" alt="" />
+      <!-- <img src="/img/card_back.jpg" alt="" /> -->
     </div>
   </button>
 </template>

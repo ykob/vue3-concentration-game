@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { GameContent } from './components/'
+import { GameContent } from './components/game/'
 </script>
 
 <template>
-  <GameContent />
+  <div>
+    <GameContent />
+  </div>
 </template>
 
 <style scoped></style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive } from "vue";
-import { CardItem, CardItemContainer, GameTimer, StartButton } from ".";
-import { CARD_COUNT } from "../constants";
+import { CardItem, CardItemContainer, GameTimer } from ".";
+import { CARD_COUNT } from "../../constants";
 
 const params = reactive<{
   gottenItemIds: number[];
@@ -74,6 +74,7 @@ const startGame = () => {
 
 onMounted(() => {
   setCardIds();
+  startGame();
 });
 </script>
 
