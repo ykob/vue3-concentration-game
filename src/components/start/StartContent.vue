@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { StartButton } from '.';
+import { AppSummary, StartButton } from '.';
 </script>
 
 <template>
   <div class="start-content">
+    <AppSummary />
     <StartButton />
   </div>
 </template>
