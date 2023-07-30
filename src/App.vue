@@ -22,13 +22,11 @@ const startGame = () => {
 </script>
 
 <template>
-  <div>
-    <StartContent v-if="params.scene === 'start'" @start-game="startGame" />
-    <GameContent
-      v-else-if="params.scene === 'game'"
-      @complete-game="completeGame"
-    />
-  </div>
+  <StartContent v-if="params.scene === 'start'" @start-game="startGame" />
+  <GameContent
+    v-else-if="params.scene === 'game'"
+    @complete-game="completeGame"
+  />
 </template>
 
 <style scoped></style>
