@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { AppSummary, StartButton } from '.';
+import { AppSummary, StartButton } from ".";
+
+const emits = defineEmits(["startGame"]);
 </script>
 
 <template>
   <div class="start-content">
     <AppSummary />
-    <StartButton />
+    <StartButton @start-game="emits('startGame')" />
   </div>
 </template>
 

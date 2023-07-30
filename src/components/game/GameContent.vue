@@ -3,6 +3,7 @@ import { computed, onMounted, reactive } from "vue";
 import { CardItem, CardItemContainer, GameTimer } from ".";
 import { CARD_COUNT } from "../../constants";
 
+const emits = defineEmits(["completeGame"]);
 const params = reactive<{
   gottenItemIds: number[];
   itemIds: number[];
@@ -19,9 +20,6 @@ const params = reactive<{
 
 const isGameCompleted = computed(() => {
   return params.gottenItemIds.length === params.itemIds.length / 2;
-});
-const isGameStarted = computed(() => {
-  return params.timeStart > 0;
 });
 const onClickCardItem = (index: number, memberId: number) => {
   if (
@@ -44,6 +42,14 @@ const onClickCardItem = (index: number, memberId: number) => {
         params.selectedItemIndices = [];
       }, 750);
     }
+  }
+  if (isGameCompleted.value) {
+    setTimeout(() => {
+      emits(
+        "completeGame",
+        Math.min(params.timeCurrent - params.timeStart, 100 * 60 * 1000)
+      );
+    }, 1000);
   }
 };
 const update = () => {
@@ -81,16 +87,14 @@ onMounted(() => {
 <template>
   <div class="game-platform">
     <GameTimer
-      v-if="isGameStarted"
       :time-current="params.timeCurrent"
       :time-start="params.timeStart"
     />
-    <StartButton v-else @start-game="startGame" />
     <CardItemContainer>
       <CardItem
         v-for="(imageId, index) in params.itemIds"
         :key="'card-item-' + index"
-        :disabled="isGameCompleted || !isGameStarted"
+        :disabled="isGameCompleted"
         :gotten-item-ids="params.gottenItemIds"
         :item-index="index"
         :image-id="imageId"

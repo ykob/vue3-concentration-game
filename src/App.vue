@@ -5,16 +5,29 @@ import { GameContent } from "./components/game/";
 import { SceneType } from "./types";
 
 const params = reactive<{
+  resultTime: number;
   scene: SceneType;
 }>({
+  resultTime: 0,
   scene: "start",
 });
+
+const completeGame = (time: number) => {
+  params.resultTime = time;
+  params.scene = "result";
+};
+const startGame = () => {
+  params.scene = "game";
+};
 </script>
 
 <template>
   <div>
-    <StartContent v-if="params.scene === 'start'" />
-    <GameContent v-else-if="params.scene === 'game'" />
+    <StartContent v-if="params.scene === 'start'" @start-game="startGame" />
+    <GameContent
+      v-else-if="params.scene === 'game'"
+      @complete-game="completeGame"
+    />
   </div>
 </template>
 
