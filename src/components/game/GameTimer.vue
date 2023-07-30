@@ -16,3 +16,11 @@ const timeValue = computed(() => {
     {{ timeValue }}
   </div>
 </template>
+
+<style scoped>
+.game-timer {
+  font-size: 3em;
+  line-height: 1;
+  font-family: 'Roboto Mono', monospace;
+}
+</style>

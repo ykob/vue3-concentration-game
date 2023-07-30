@@ -85,7 +85,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="game-platform">
+  <div class="game-content">
     <GameTimer
       :time-current="params.timeCurrent"
       :time-start="params.timeStart"
@@ -105,4 +105,13 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.game-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 40px;
+}
+</style>
