@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { AppSummary, StartButton } from ".";
+import { AppSummary } from ".";
+import { FilledButton } from "../common";
 
 const emits = defineEmits(["startGame"]);
 </script>
@@ -7,8 +8,18 @@ const emits = defineEmits(["startGame"]);
 <template>
   <div class="start-content">
     <AppSummary />
-    <StartButton @start-game="emits('startGame')" />
+    <FilledButton size="lg" @click="emits('startGame')">
+      Game Start
+    </FilledButton>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.start-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+</style>
