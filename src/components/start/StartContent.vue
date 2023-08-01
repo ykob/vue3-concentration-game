@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { AppSummary } from ".";
-import { FilledButton } from "../common";
+import { CardItem, FilledButton } from "../common";
 
 const emits = defineEmits(["startGame"]);
 </script>
 
 <template>
   <div class="start-content">
+    <CardItem />
     <AppSummary />
     <FilledButton size="lg" @click="emits('startGame')">
       Game Start
