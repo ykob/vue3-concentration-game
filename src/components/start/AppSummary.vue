@@ -17,11 +17,11 @@
 h1 {
   margin: 0;
   line-height: 1;
-  font-size: 4em;
+  font-size: 3em;
   letter-spacing: 0.02em;
 }
 p {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   letter-spacing: 0.06em;
 }
 </style>

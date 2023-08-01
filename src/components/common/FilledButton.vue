@@ -24,7 +24,7 @@ const classnames = computed(() => {
   border: none;
   border-radius: 9999px;
   line-height: 1;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.1rem;
   text-align: center;
   color: #fff;
   background-color: #007bff;
@@ -42,6 +42,6 @@ const classnames = computed(() => {
 .filled-button--lg {
   height: 64px;
   padding-inline: 2rem;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 }
 </style>
