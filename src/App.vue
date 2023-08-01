@@ -2,6 +2,7 @@
 import { reactive } from "vue";
 import { StartContent } from "./components/start/";
 import { GameContent } from "./components/game/";
+import { ResultContent } from "./components/result/";
 import { SceneType } from "./types";
 
 const params = reactive<{
@@ -27,6 +28,7 @@ const startGame = () => {
     v-else-if="params.scene === 'game'"
     @complete-game="completeGame"
   />
+  <ResultContent v-else-if="params.scene === 'result'" />
 </template>
 
 <style scoped></style>
