@@ -7,13 +7,13 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   size: "md",
 });
-const classNames = computed(() => {
+const classnames = computed(() => {
   return ["filled-button", `filled-button--${props.size}`];
 });
 </script>
 
 <template>
-  <button :class="classNames" type="button">
+  <button :class="classnames" type="button">
     <slot></slot>
   </button>
 </template>
