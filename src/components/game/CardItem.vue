@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { zeroPadding } from "../../utils";
+import { CardItem } from "../common/";
 
 const props = defineProps<{
   gottenItemIds: number[];
@@ -8,89 +8,14 @@ const props = defineProps<{
   itemIndex: number;
   selectedItemIndices: number[];
 }>();
-const classnames = computed(() => {
-  return {
-    "is-flipped": isFlipped.value,
-  };
-});
 const isFlipped = computed(() => {
   return (
     props.gottenItemIds.includes(props.imageId) ||
     props.selectedItemIndices.includes(props.itemIndex)
   );
 });
-const src = computed(() => {
-  return `/img/card${zeroPadding(props.imageId, 2)}.jpg`;
-});
 </script>
 
 <template>
-  <button class="card-item">
-    <div class="front" :class="classnames">
-      <!-- <img :src="src" alt="" /> -->
-      {{ props.imageId }}
-    </div>
-    <div class="back" :class="classnames">
-      <!-- <img src="/img/card_back.jpg" alt="" /> -->
-    </div>
-  </button>
+  <CardItem :imageId="props.imageId" :isFlipped="isFlipped" />
 </template>
-
-<style scoped>
-.card-item {
-  cursor: pointer;
-  width: 120px;
-  height: 180px;
-  color: #fff;
-  transform-style: preserve-3d;
-  perspective: 640px;
-  border: 0;
-  background-color: transparent;
-}
-.card-item:focus {
-  outline: none;
-}
-.card-item:focus:before {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border: 4px solid #00f;
-  border-radius: 8px;
-  z-index: -1;
-}
-.card-item:disabled {
-  cursor: default;
-}
-.card-item img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.front,
-.back {
-  overflow: hidden;
-  border-radius: 8px;
-  transition-property: transform;
-  transition-duration: 0.2s;
-}
-.front {
-  position: absolute;
-  inset: 0;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
-  background-color: #c00;
-}
-.front.is-flipped {
-  transform: rotateY(0deg);
-}
-.back {
-  position: absolute;
-  inset: 0;
-  transform: rotateY(0deg);
-  backface-visibility: hidden;
-  background-color: #000;
-}
-.back.is-flipped {
-  transform: rotateY(180deg);
-}
-</style>
