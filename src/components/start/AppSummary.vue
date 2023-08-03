@@ -12,13 +12,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 24px;
 }
 h1 {
   margin: 0;
   line-height: 1;
   font-size: 3em;
   letter-spacing: 0.02em;
+}
+@container (width < 768px) {
+  h1 {
+    width: 6.5em;
+  }
 }
 p {
   font-size: 1.125rem;

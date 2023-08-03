@@ -22,5 +22,6 @@ const emits = defineEmits(["startGame"]);
   align-items: center;
   justify-content: center;
   gap: 40px;
+  container-type: inline-size;
 }
 </style>
