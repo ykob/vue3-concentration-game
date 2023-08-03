@@ -31,17 +31,17 @@ const classnames = computed(() => {
   background-color: #007bff;
 }
 .filled-button--sm {
-  height: 32px;
+  height: 24px;
   padding-inline: 1rem;
   font-size: 0.875rem;
 }
 .filled-button--md {
-  height: 48px;
+  height: 40px;
   padding-inline: 1.75rem;
   font-size: 1rem;
 }
 .filled-button--lg {
-  height: 64px;
+  height: 56px;
   padding-inline: 2rem;
   font-size: 1.125rem;
 }

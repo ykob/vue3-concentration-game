@@ -17,6 +17,10 @@ const completeGame = (time: number) => {
   params.resultTime = time;
   params.scene = "result";
 };
+const retryGame = () => {
+  params.resultTime = 0;
+  params.scene = "game";
+};
 const startGame = () => {
   params.scene = "game";
 };
@@ -28,7 +32,10 @@ const startGame = () => {
     v-else-if="params.scene === 'game'"
     @complete-game="completeGame"
   />
-  <ResultContent v-else-if="params.scene === 'result'" />
+  <ResultContent
+    v-else-if="params.scene === 'result'"
+    @retry-game="retryGame"
+  />
 </template>
 
 <style scoped></style>
