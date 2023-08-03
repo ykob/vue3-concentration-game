@@ -10,7 +10,7 @@ const emits = defineEmits(["startGame"]);
     <CardItem />
     <AppSummary />
     <FilledButton size="lg" @click="emits('startGame')">
-      Game Start
+      Start Game
     </FilledButton>
   </div>
 </template>

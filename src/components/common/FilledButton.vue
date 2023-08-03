@@ -27,6 +27,7 @@ const classnames = computed(() => {
   letter-spacing: 0.1rem;
   text-align: center;
   color: #fff;
+  font-weight: 700;
   background-color: #007bff;
 }
 .filled-button--sm {
