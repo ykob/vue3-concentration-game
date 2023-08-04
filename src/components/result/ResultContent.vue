@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { CompleteMessage, RetryButton } from "./";
+import { CompleteMessage, ResultTimer, RetryButton } from "./";
 
 const emits = defineEmits(["retryGame"]);
+const props = defineProps<{
+  resultTime: number;
+}>();
 </script>
 
 <template>
   <div class="result-content">
+    <ResultTimer :result-time="props.resultTime" />
     <CompleteMessage />
     <RetryButton @retry-game="emits('retryGame')" />
   </div>

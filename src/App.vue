@@ -16,6 +16,7 @@ const params = reactive<{
 const completeGame = (time: number) => {
   params.resultTime = time;
   params.scene = "result";
+  console.log(time)
 };
 const retryGame = () => {
   params.resultTime = 0;
@@ -34,6 +35,7 @@ const startGame = () => {
   />
   <ResultContent
     v-else-if="params.scene === 'result'"
+    :result-time="params.resultTime"
     @retry-game="retryGame"
   />
 </template>

@@ -17,7 +17,7 @@
 h1 {
   margin: 0;
   line-height: 1;
-  font-size: 3em;
+  font-size: 4em;
   letter-spacing: 0.02em;
 }
 p {
