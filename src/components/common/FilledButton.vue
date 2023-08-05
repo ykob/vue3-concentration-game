@@ -21,6 +21,8 @@ const classnames = computed(() => {
 <style scoped>
 .filled-button {
   cursor: pointer;
+  display: flex;
+  align-items: center;
   border: none;
   border-radius: 9999px;
   line-height: 1;
@@ -32,16 +34,19 @@ const classnames = computed(() => {
 }
 .filled-button--sm {
   height: 24px;
+  gap: 4px;
   padding-inline: 1rem;
   font-size: 0.875rem;
 }
 .filled-button--md {
   height: 40px;
+  gap: 8px;
   padding-inline: 1.75rem;
   font-size: 1rem;
 }
 .filled-button--lg {
   height: 56px;
+  gap: 8px;
   padding-inline: 2rem;
   font-size: 1.125rem;
 }
