@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { mdiCardsPlaying } from "@mdi/js";
 import { AppSummary } from ".";
-import { CardItem, FilledButton } from "../common";
+import { CardItem, FilledButton, IconBase } from "../common";
 
 const emits = defineEmits(["startGame"]);
 </script>
@@ -11,6 +12,7 @@ const emits = defineEmits(["startGame"]);
     <AppSummary />
     <FilledButton size="lg" @click="emits('startGame')">
       Start Game
+      <IconBase :path="mdiCardsPlaying" size="28" />
     </FilledButton>
   </div>
 </template>
