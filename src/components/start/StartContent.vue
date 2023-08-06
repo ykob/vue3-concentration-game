@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { mdiCardsPlaying } from "@mdi/js";
-import { AppSummary } from ".";
-import { CardItem, FilledButton, IconBase } from "../common";
+import { AppSummary, CardItemWrap } from ".";
+import { FilledButton, IconBase } from "../common";
 
 const emits = defineEmits(["startGame"]);
 </script>
 
 <template>
   <div class="start-content">
-    <CardItem />
+    <CardItemWrap />
     <AppSummary />
     <FilledButton size="lg" @click="emits('startGame')">
       Start Game

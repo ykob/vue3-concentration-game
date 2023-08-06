@@ -34,8 +34,8 @@ const src = computed(() => {
 <style scoped>
 .card-item {
   cursor: pointer;
-  width: 120px;
-  height: 180px;
+  width: 100%;
+  aspect-ratio: 2 / 3;
   color: #fff;
   transform-style: preserve-3d;
   perspective: 640px;
