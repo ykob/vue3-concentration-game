@@ -31,6 +31,11 @@ const classnames = computed(() => {
   color: #fff;
   font-weight: 700;
   background-color: #007bff;
+  transition-duration: 0.2s;
+  transition-property: background-color;
+}
+.filled-button:hover {
+  background-color: #0069d9;
 }
 .filled-button--sm {
   height: 24px;
