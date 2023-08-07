@@ -12,8 +12,12 @@ body {
 }
 #app {
   width: 100%;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-block: 80px;
+}
+@media (width < 768px) {
+  #app {
+    margin-block: 40px;
+  }
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
