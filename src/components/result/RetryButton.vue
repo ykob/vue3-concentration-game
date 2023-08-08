@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { mdiRefresh } from "@mdi/js";
-import { FilledButton, IconBase } from "../common";
+import { FilledButton, IconBase } from "../ui";
 
 const emits = defineEmits(["retryGame"]);
 </script>
