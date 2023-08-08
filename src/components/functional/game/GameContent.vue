@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, reactive } from "vue";
 import { CardItem, CardItemContainer, GameTimer } from ".";
-import { CARD_COUNT } from "../../constants";
+import { CARD_COUNT } from "../../../constants";
 
 const emits = defineEmits(["completeGame"]);
 const params = reactive<{

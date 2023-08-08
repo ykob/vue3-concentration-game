@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
-import { CardItem } from "../ui";
-import { CARD_COUNT } from "../../constants";
+import { CardItem } from "../../ui";
+import { CARD_COUNT } from "../../../constants";
 
 const params = reactive<{
   imageId: number;

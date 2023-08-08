@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { CardItem } from "../ui/";
+import { CardItem } from "../../ui/";
 
 const props = defineProps<{
   gottenItemIds: number[];

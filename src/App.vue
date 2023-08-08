@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { reactive } from "vue";
-import { StartContent } from "./components/start/";
-import { GameContent } from "./components/game/";
-import { ResultContent } from "./components/result/";
+import { StartContent } from "./components/functional/start/";
+import { GameContent } from "./components/functional/game/";
+import { ResultContent } from "./components/functional/result/";
 import { SceneType } from "./types";
 
 const params = reactive<{

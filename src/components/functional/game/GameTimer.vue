@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { getTime } from "../../utils"
+import { getTime } from "../../../utils"
 
 const props = defineProps<{
-  resultTime: number;
+  timeCurrent: number;
+  timeStart: number;
 }>();
 const timeValue = computed(() => {
-  return getTime(props.resultTime);
+  return getTime(props.timeCurrent - props.timeStart);
 });
 </script>
 
 <template>
-  <div class="result-timer">
+  <div class="game-timer">
     {{ timeValue }}
   </div>
 </template>
 
 <style scoped>
-.result-timer {
+.game-timer {
   font-size: 3em;
   line-height: 1;
   font-family: 'Roboto Mono', monospace;
