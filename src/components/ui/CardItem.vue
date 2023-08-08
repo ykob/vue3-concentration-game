@@ -48,9 +48,9 @@ const src = computed(() => {
 .card-item:focus:before {
   content: "";
   position: absolute;
-  inset: -6px;
+  inset: -5px;
   border: 4px solid #00f;
-  border-radius: 8px;
+  border-radius: 0.7vb;
   z-index: -1;
 }
 .card-item:disabled {
@@ -64,7 +64,7 @@ const src = computed(() => {
 .front,
 .back {
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 0.7vb;
   transition-property: transform;
   transition-duration: 0.2s;
 }
