@@ -2,13 +2,19 @@
 import { computed } from "vue";
 
 interface Props {
+  circle: boolean;
   size: "sm" | "md" | "lg";
 }
 const props = withDefaults(defineProps<Props>(), {
+  circle: false,
   size: "md",
 });
 const classnames = computed(() => {
-  return ["filled-button", `filled-button--${props.size}`];
+  return [
+    "filled-button",
+    `filled-button--${props.size}`,
+    { "filled-button--circle": props.circle },
+  ];
 });
 </script>
 
@@ -22,6 +28,7 @@ const classnames = computed(() => {
 .filled-button {
   cursor: pointer;
   display: flex;
+  justify-content: center;
   align-items: center;
   border: none;
   border-radius: 9999px;
@@ -37,11 +44,15 @@ const classnames = computed(() => {
 .filled-button:hover {
   background-color: #0069d9;
 }
+
 .filled-button--sm {
   height: 24px;
   gap: 4px;
   padding-inline: 1rem;
   font-size: 0.875rem;
+}
+.filled-button--circle.filled-button--sm {
+  width: 24px;
 }
 .filled-button--md {
   height: 40px;
@@ -49,10 +60,19 @@ const classnames = computed(() => {
   padding-inline: 1.75rem;
   font-size: 1rem;
 }
+.filled-button--circle.filled-button--md {
+  width: 40px;
+}
 .filled-button--lg {
   height: 56px;
   gap: 8px;
   padding-inline: 2rem;
   font-size: 1.125rem;
+}
+.filled-button--circle.filled-button--lg {
+  width: 56px;
+}
+.filled-button--circle {
+  padding-inline: 0;
 }
 </style>
