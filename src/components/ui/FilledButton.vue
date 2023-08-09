@@ -4,10 +4,12 @@ import { computed } from "vue";
 interface Props {
   circle: boolean;
   size: "sm" | "md" | "lg";
+  tag: keyof HTMLElementTagNameMap;
 }
 const props = withDefaults(defineProps<Props>(), {
   circle: false,
   size: "md",
+  tag: "button",
 });
 const classnames = computed(() => {
   return [
@@ -19,9 +21,9 @@ const classnames = computed(() => {
 </script>
 
 <template>
-  <button :class="classnames" type="button">
+  <component :is="props.tag" :class="classnames">
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <style scoped>
