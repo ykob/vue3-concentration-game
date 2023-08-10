@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { mdiCardsPlaying } from "@mdi/js";
-import { AppSummary, CardItemWrap, ShareButtons } from ".";
+import { AppSummary, CardItemWrap } from ".";
+import { ShareButtons } from "../common";
 import { FilledButton, IconBase } from "../../ui";
 
 const emits = defineEmits(["startGame"]);
