@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { zeroPadding } from "../../utils";
+// import { zeroPadding } from "../../utils";
 
 const props = withDefaults(defineProps<{
   imageId: number;
@@ -14,9 +14,9 @@ const classnames = computed(() => {
     "is-flipped": props.isFlipped,
   };
 });
-const src = computed(() => {
-  return `/img/card${zeroPadding(props.imageId, 2)}.jpg`;
-});
+// const src = computed(() => {
+//   return `/img/card${zeroPadding(props.imageId, 2)}.jpg`;
+// });
 </script>
 
 <template>
