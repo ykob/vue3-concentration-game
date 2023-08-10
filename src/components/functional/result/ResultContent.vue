@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CompleteMessage, ResultTimer, RetryButton } from "./";
+import { ShareButtons } from "../common";
 
 const emits = defineEmits(["retryGame"]);
 const props = defineProps<{
@@ -12,6 +13,7 @@ const props = defineProps<{
     <ResultTimer :result-time="props.resultTime" />
     <CompleteMessage />
     <RetryButton @retry-game="emits('retryGame')" />
+    <ShareButtons />
   </div>
 </template>
 
